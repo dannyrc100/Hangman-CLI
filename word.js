@@ -2,24 +2,24 @@ var fs = require('fs');
 var game = require('./game');
 
 
-function main_menu(){
-	var word;
+function word(){
+	var words;
 	var array = [];
 	var tries = 3;
-    fs.readFile("words.txt", "utf8", function(error, data) {
+    fs.readFile("superheroes.txt", "utf8", function(error, data) {
 		var dataArr = data.split(", ");
-		word = dataArr[Math.floor(Math.random()*dataArr.length)];
-		for (var i = 0; i < word.length; i++) {
-			if(word.charAt(i) === ' '){
+		words = dataArr[Math.floor(Math.random()*dataArr.length)];
+		for (var i = 0; i < words.length; i++) {
+			if(words.charAt(i) === ' '){
 				array[i] = ' ';
 			}
 			else{
 		 	array[i] = "_ ";
 		 	}
 		}
-		var start = new game(word, array, tries, main_menu);
+		var start = new game(words, array, tries, word);
 		start.gameStart();
     });
 }
-module.exports = main_menu;
-main_menu();
+module.exports = word;
+word();

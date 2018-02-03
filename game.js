@@ -1,6 +1,6 @@
 var inquirer = require("inquirer");
 var coloring = require('coloring');
-var main_menu = require('./main_menu')
+var word = require('./word')
 var fs = require('fs');
 
 var game = function game(word, array, tries, callback){
@@ -15,7 +15,7 @@ var game = function game(word, array, tries, callback){
 		{
 			type: 'input',
 			name: 'letter',
-			message: 'Choose one letter.'
+			message: 'Choose one letter to guess superhero.'
 		}
 		]).then(function(user){
 				if(user.letter.length > 1){
@@ -70,10 +70,10 @@ var game = function game(word, array, tries, callback){
 
 function isWinner(word, survived, _callback){
 		if(survived === true){
-			var text = "YOU HAVE SURVIVED";
+			var text = "SUPERHERO HAS SAVED YOU";
 		}
 		else if(survived === false){
-			var text = "YOU'RE DEAD";
+			var text = "SORRY TRY AGAIN";
 		}
 		console.log("\n******  "+ text +"  ******");
 		console.log('The word was: '+ coloring.green(word.toUpperCase()));

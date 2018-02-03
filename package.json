@@ -2,7 +2,7 @@
   "name": "hangman-cli",
   "version": "1.0.0",
   "description": "\"Hangman Game Using Command-Line\"",
-  "main": "index.js",
+  "main": "word.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
